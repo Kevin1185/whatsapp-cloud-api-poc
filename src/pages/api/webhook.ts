@@ -6,6 +6,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  console.log("ENV TOKEN:", process.env.WEBHOOK_VERIFY_TOKEN);
+  console.log("QUERY TOKEN:", req.query["hub.verify_token"]);
   if (req.method === "GET") {
     const mode = req.query["hub.mode"];
     const token = req.query["hub.verify_token"];
